@@ -4,7 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import re
 import numpy as np
-from features.build_features import FeatureEngineering,DataProcessing,
+from features.build_features import FeatureEngineering,DataProcessing, get_class
 
 
 
@@ -25,8 +25,8 @@ uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(path)
     data_processing = DataProcessing()
-    processed_data = data_processing.process_data(df
-    prediction = model.predict(df_processed.values)
+    processed_data = data_processing.process_data(df)
+    prediction = model.predict(processed_data.values)
     value=get_class(prediction)
     st.write("Predictions:")
-    st.write(predictions)
+    st.write(prediction)
