@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 
 WORKDIR /app/src
 
-CMD streamlit run app.py
+CMD streamlit run --sever.port 8080 --server.enableCORS false app.py
